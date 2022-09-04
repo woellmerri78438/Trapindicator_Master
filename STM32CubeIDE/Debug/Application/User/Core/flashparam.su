@@ -1,0 +1,4 @@
+D:/Studium_Software/Projektarbeit/_Final_Master_Light/Core/Src/flashparam.c:40:6:Eraseflash_func	8	static
+D:/Studium_Software/Projektarbeit/_Final_Master_Light/Core/Src/flashparam.c:63:6:Writeflash_func	32	static
+D:/Studium_Software/Projektarbeit/_Final_Master_Light/Core/Src/flashparam.c:99:19:Readflash_func	88	static
+D:/Studium_Software/Projektarbeit/_Final_Master_Light/Core/Src/flashparam.c:148:17:GetPage	16	static

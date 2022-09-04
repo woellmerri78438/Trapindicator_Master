@@ -1,0 +1,4 @@
+../../Drivers/STM32WLxx_HAL_Driver/Inc/stm32wlxx_ll_rcc.h:1257:22:LL_RCC_LSE_SetDriveCapability	16	static
+D:/Studium_Software/Projektarbeit/_Final_Master_Light/Core/Src/main.c:67:5:main	8	static
+D:/Studium_Software/Projektarbeit/_Final_Master_Light/Core/Src/main.c:116:6:SystemClock_Config	112	static
+D:/Studium_Software/Projektarbeit/_Final_Master_Light/Core/Src/main.c:167:6:Error_Handler	4	static,ignoring_inline_asm

@@ -1,0 +1,3 @@
+D:/Studium_Software/Projektarbeit/_Final_Master_Light/Core/Src/btcommandread.c:57:6:BT_UART_RXCallback	24	static
+D:/Studium_Software/Projektarbeit/_Final_Master_Light/Core/Src/btcommandread.c:116:6:SetUpTXRXCycle_BTUART	8	static
+D:/Studium_Software/Projektarbeit/_Final_Master_Light/Core/Src/btcommandread.c:135:13:memcpy_char_dword	48	static
