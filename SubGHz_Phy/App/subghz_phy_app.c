@@ -713,7 +713,7 @@ static void SyncedWakeup(void){
 
 		/*String bauen für SMS*/
 		char message[320] = {0}; //one SMS can only transmit 160 chars, max 2 sms allowed
-		char strtemp[32];
+		char strtemp[40];
 		sprintf(message, "Event on Trap(s):\nMaster: ");
 		sprintf(strtemp, "Bat: %d%%, Trig: %u\n", Akku_Prozent, traptriggered);
 		strcat(message, strtemp);
@@ -801,9 +801,11 @@ static void GSMTest(void){
 	/*Workaround, UART2 may not wake up after Stopmode2, if not reinitialized with expicit call of the MspInit part */
 	HAL_UART_MspInit(&huart2);
 	MX_USART2_UART_Init();
-	//if (buttonpressdone)
-		//_BT_PRINT("GSMButtonpress!\r");
-	_BT_PRINT("GSM-Test started. Please wait...\r");
+	if (buttonpressdone){
+		_BT_PRINT("GSM Test Button pressed\r");
+	}else{
+		_BT_PRINT("GSM-Test started. Please wait...\r");
+	}
 	gsmtest_OK = 0;
 
 	if (strncmp(Parameter.Handynummer, "+", 1) == 0 && digits_only(Parameter.Handynummer+1) == 1){
@@ -955,14 +957,14 @@ static void LoRa_FindSync(void){
 	   * and none gets ignored accidently, if another one answers at the same time.
 	   * On Air time with SF=12, BW=125KHz, 8 Bit Payload is ca. 1s -> Reception window should be active several seconds.
 	   */
-	  UTIL_TIMER_Create(&timerLoraSync, 20000, UTIL_TIMER_ONESHOT, OnSyncOverEvent, NULL);
+	  UTIL_TIMER_Create(&timerLoraSync, 30000, UTIL_TIMER_ONESHOT, OnSyncOverEvent, NULL);
 	  UTIL_TIMER_Start(&timerLoraSync);
 	  syncover = false;
 	  /*Wait for Slaves to answer*/
 	  State = NONE;
 	  while(!syncover) {
 		  if (State == RX_ERROR || State == RX_TIMEOUT){
-			  _BT_PRINT("LoRa message reception error. Continuing to receive... \r");
+			  //_BT_PRINT("LoRa message reception error. Continuing to receive... \r");
 			  /*Reset State for next receive*/
 			  State = NONE;
 			  Radio.Rx(0);
